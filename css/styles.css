@@ -1,0 +1,37 @@
+.navbar {
+    background-color: #799a05;
+}
+
+a {
+    color: white;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: "Open Sans", sans-serif
+}
+
+h2 {
+    color: ##799a05;
+}
+
+header h2 {
+    color: #799a05;
+}
+
+.btn {
+    background-color: #799a05;
+    color: white;
+}
+
+.card-header {
+    background-color: #066880;
+    color: white;
+}
+
+i {
+color: #066880;
+}
