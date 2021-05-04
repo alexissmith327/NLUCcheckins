@@ -35,3 +35,8 @@ header h2 {
 i {
 color: #066880;
 }
+
+.jumbotron {
+    background-color: rgb(240, 238, 238);
+    color:#066880;
+}
