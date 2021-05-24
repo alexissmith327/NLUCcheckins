@@ -171,14 +171,14 @@
                                     </tr>
                                     <tr>
                                         <td>1</td>
-                                        <td>Cheryl Bertrand</td>
-                                        <td><select name="select" id="default">
-                                                <option value="One">1</option>
-                                                <option value="Two">2</option>
-                                                <option value="Three">3</option>
-                                                <option value="Four">4</option>
-                                                <option value="Five">5</option>
-                                                <option value="Six">6</option>
+                                        <td id="patientName">Cheryl Bertrand</td>
+                                        <td><select name="select" id="roomSelection">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
                                             </select></td>
                                         <td></select> <input type="checkbox" id="sms" name="sms"></li>
                                         </td>
@@ -186,7 +186,7 @@
                                 </table>
                                 </p>
                                 <button type="button" class="mt-2 ml-2 btn float-right">Send Text</button>
-                                <button type="button" class="mt-2 btn float-right">Check-in</button>
+                                <button type="button" id="checkinLine" class="mt-2 btn float-right">Check-in</button>
                             </div>
                         </div>
                     </div>
@@ -199,7 +199,7 @@
                             </div>
                             <div class="card-body" style="font-size: 13px">
                                 <p class="card-text">
-                                <table style="width:100%">
+                                <table style="width:100%" id="my-table">
                                     <tr>
                                         <th>Time:</th>
                                         <th>Name:</th>

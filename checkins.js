@@ -3,7 +3,8 @@ let patientsRoomTwo=["Katie", "Juliet", "Scott"];
 let patientsRoomThree=["Cheryl", "Bill", "Mark"];
 let patientsRoomFour=["Jeremy", "Allyson", "Courtney"];
 let patientsRoomFive=["Steven","Kelly", "Martin"];
-let patientsRoomSix=["Colene","Amy", "Chelsea"]
+let patientsRoomSix=["Colene","Amy", "Chelsea"];
+let line=["Cheryl Bertrand"];
 var checkedOut=[];
 
 //Room One
@@ -100,4 +101,47 @@ $('#checkoutRoomSix').click(function()
 	roomSix.innerHTML = patientsRoomSix.map(i => `<li>${i}</li>`).join('');
 	out.innerHTML = checkedOut.map(i => `<li>${i}</li>`).join('');
 	$("#checkoutRoomSix").hide();
+});
+
+var s = document.getElementById('roomSelection');
+
+$("#checkinLine").click(function() {
+	if (s.value==1){
+		patientsRoomOne=line.concat(patientsRoomOne);
+		roomOne.innerHTML = patientsRoomOne.map(i => `<li>${i}</li>`).join('');
+		$("#checkoutRoomOne").show();
+		return line=[];
+	}
+	else if (s.value==2){
+		patientsRoomTwo=line.concat(patientsRoomTwo);
+		roomTwo.innerHTML = patientsRoomTwo.map(i => `<li>${i}</li>`).join('');
+		$("#checkoutRoomTwo").show();
+		return line=[];
+	}
+	else if (s.value==3){
+		patientsRoomThree=line.concat(patientsRoomTwo);
+		roomThree.innerHTML = patientsRoomThree.map(i => `<li>${i}</li>`).join('');
+		$("#checkoutRoomThree").show();
+		return line=[];
+	}
+	else if (s.value==4){
+		patientsRoomFour=line.concat(patientsRoomFour);
+		roomFour.innerHTML = patientsRoomFour.map(i => `<li>${i}</li>`).join('');
+		$("#checkoutRoomFour").show();
+		return line=[];
+	}
+	else if (s.value==5){
+		patientsRoomFive=line.concat(patientsRoomFive);
+		roomFive.innerHTML = patientsRoomFive.map(i => `<li>${i}</li>`).join('');
+		$("#checkoutRoomFive").show();
+		return line=[];
+	}
+	else if (s.value==6){
+		patientsRoomSix=line.concat(patientsRoomSix);
+		roomSix.innerHTML = patientsRoomSix.map(i => `<li>${i}</li>`).join('');
+		$("#checkoutRoomSix").show();
+		return line=[];
+	} else{
+		alert("Please select a valid option.");
+	}
 });
