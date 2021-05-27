@@ -1,10 +1,11 @@
-let patientsRoomOne = ["Alexis","Hunter","Ava"];
-let patientsRoomTwo=["Katie", "Juliet", "Scott"];
-let patientsRoomThree=["Cheryl", "Bill", "Mark"];
-let patientsRoomFour=["Jeremy", "Allyson", "Courtney"];
-let patientsRoomFive=["Steven","Kelly", "Martin"];
-let patientsRoomSix=["Colene","Amy", "Chelsea"];
-let line=["Cheryl Bertrand"];
+
+let patientsRoomOne = [];
+let patientsRoomTwo=[];
+let patientsRoomThree=[];
+let patientsRoomFour=[];
+let patientsRoomFive=[];
+let patientsRoomSix=[];
+let patientLine=["Juliet Breeze","Cheryl Bertrand","Hunter Breeze","Ava Breeze","Chelsea Gomez","Alexis Smith","Taylor Terrell","Mark Gryder", "Bill McGrath", "Jeremy Behling"];
 var checkedOut=[];
 
 //Room One
@@ -48,6 +49,12 @@ var out = document.querySelector('#checkedOut');
 out.innerHTML = '<ul>' + checkedOut.map(function (patient) {
 	return '<li>' + patient+ '</li>';
 }).join('') + '</ul>';
+
+//Line
+var patientLines = document.querySelector('#linePatients');
+patientLines.innerHTML = '<ol>' + patientLine.map(function (patient) {
+	return '<li class= "line" id="line">' + patient+ '</li>';
+}).join('') + '</ol>';
 
 $('#checkoutRoomOne').click(function()
 {
@@ -103,45 +110,23 @@ $('#checkoutRoomSix').click(function()
 	$("#checkoutRoomSix").hide();
 });
 
-var s = document.getElementById('roomSelection');
+$('.line').click(function () {
+    $(this).toggleClass('lineClicked');
+    $(this).toggleClass('line');
+});
 
-$("#checkinLine").click(function() {
-	if (s.value==1){
-		patientsRoomOne=line.concat(patientsRoomOne);
-		roomOne.innerHTML = patientsRoomOne.map(i => `<li>${i}</li>`).join('');
-		$("#checkoutRoomOne").show();
-		return line=[];
-	}
-	else if (s.value==2){
-		patientsRoomTwo=line.concat(patientsRoomTwo);
-		roomTwo.innerHTML = patientsRoomTwo.map(i => `<li>${i}</li>`).join('');
-		$("#checkoutRoomTwo").show();
-		return line=[];
-	}
-	else if (s.value==3){
-		patientsRoomThree=line.concat(patientsRoomTwo);
-		roomThree.innerHTML = patientsRoomThree.map(i => `<li>${i}</li>`).join('');
-		$("#checkoutRoomThree").show();
-		return line=[];
-	}
-	else if (s.value==4){
-		patientsRoomFour=line.concat(patientsRoomFour);
-		roomFour.innerHTML = patientsRoomFour.map(i => `<li>${i}</li>`).join('');
-		$("#checkoutRoomFour").show();
-		return line=[];
-	}
-	else if (s.value==5){
-		patientsRoomFive=line.concat(patientsRoomFive);
-		roomFive.innerHTML = patientsRoomFive.map(i => `<li>${i}</li>`).join('');
-		$("#checkoutRoomFive").show();
-		return line=[];
-	}
-	else if (s.value==6){
-		patientsRoomSix=line.concat(patientsRoomSix);
-		roomSix.innerHTML = patientsRoomSix.map(i => `<li>${i}</li>`).join('');
-		$("#checkoutRoomSix").show();
-		return line=[];
-	} else{
-		alert("Please select a valid option.");
-	}
+$('#lineRoomOne').click(function()
+{
+	let clicked=$('.lineClicked').toArray();
+	for (i = 0; i< clicked.length; i++) {
+		patientsRoomOne.push(clicked[i].innerHTML);
+		patientLine.splice(patientLine.indexOf(clicked[i].innerHTML), 1)}
+
+		one.innerHTML = '<ul>' + patientsRoomOne.map(function (patient) {
+			return '<li>' + patient+ '</li>';
+		}).join('') + '</ul>';
+
+		patientLines.innerHTML = '<ol>' + patientLine.map(function (patient) {
+			return '<li class= "line" id="line">' + patient+ '</li>';
+		}).join('') + '</ol>';
 });

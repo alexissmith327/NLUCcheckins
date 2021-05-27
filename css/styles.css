@@ -40,3 +40,39 @@ color: #066880;
     background-color: rgb(240, 238, 238);
     color:#066880;
 }
+
+.modal-header {
+    background: #066880;
+    color:white;
+}
+
+tr:hover {
+    background: #ddd;
+  }
+
+  tr.checked {
+    background: #888;
+    color: #fff;
+    text-decoration: line-through;
+  }
+
+  .input {
+      background-color: black;
+  }
+
+.line {
+    background: #fff;
+}
+.line:nth-child(odd) {
+      background: #ddd;  }
+
+  
+  .btn checkinBtn {
+     padding-top: 6px;
+      padding-bottom: 5px;
+  }
+
+  .lineClicked {
+      background-color: #799a05;
+      color: black;
+  }
