@@ -46,16 +46,6 @@ color: #066880;
     color:white;
 }
 
-tr:hover {
-    background: #ddd;
-  }
-
-  tr.checked {
-    background: #888;
-    color: #fff;
-    text-decoration: line-through;
-  }
-
   .input {
       background-color: black;
   }
@@ -75,4 +65,16 @@ tr:hover {
   .lineClicked {
       background-color: #799a05;
       color: black;
+  }
+
+  .appts {
+    background: #fff;
+}
+
+.appts:nth-child(odd) {
+      background: #ddd;  }
+
+  .apptsClicked {
+    background-color: #799a05;
+    color: black;
   }

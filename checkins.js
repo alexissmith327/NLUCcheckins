@@ -6,6 +6,10 @@ let patientsRoomFour=[];
 let patientsRoomFive=[];
 let patientsRoomSix=[];
 let patientLine=["Juliet Breeze","Cheryl Bertrand","Hunter Breeze","Ava Breeze","Chelsea Gomez","Alexis Smith","Taylor Terrell","Mark Gryder", "Bill McGrath", "Jeremy Behling"];
+
+let appts=[{"firstName":"Scott Breeze", "time":"4:30pm"},
+ {"firstName":"Allyson Cooper", "time":"5:30pm"},{"firstName":"Taylor Smith", "time":"7:30pm"}, {"firstName":"Rafik Sandford", "time":"8:30pm"},{"firstName":"Pat Ronaghan", "time":"8:55pm"}]
+
 var checkedOut=[];
 
 //Room One
@@ -55,6 +59,11 @@ var patientLines = document.querySelector('#linePatients');
 patientLines.innerHTML = '<ol>' + patientLine.map(function (patient) {
 	return '<li class= "line" id="line">' + patient+ '</li>';
 }).join('') + '</ol>';
+
+//Appointments
+appts.forEach(function(item){
+	$('#appts').append('<tr class="appts" id="appts"><td>'+item["time"]+'</td>'+'<td>'+item.firstName+'</td></tr>')
+  });
 
 $('#checkoutRoomOne').click(function()
 {
@@ -110,17 +119,20 @@ $('#checkoutRoomSix').click(function()
 	$("#checkoutRoomSix").hide();
 });
 
+//Toggle clicked vs unclicked Walk-ins 
 $('.line').click(function () {
     $(this).toggleClass('lineClicked');
     $(this).toggleClass('line');
 });
 
+//Check Walk-Ins into Room One 
+
 $('#lineRoomOne').click(function()
 {
-	let clicked=$('.lineClicked').toArray();
-	for (i = 0; i< clicked.length; i++) {
-		patientsRoomOne.push(clicked[i].innerHTML);
-		patientLine.splice(patientLine.indexOf(clicked[i].innerHTML), 1)}
+	let clickedOne=$('.lineClicked').toArray();
+	for (i = 0; i< clickedOne.length; i++) {
+		patientsRoomOne.push(clickedOne[i].innerHTML);
+		patientLine.splice(patientLine.indexOf(clickedOne[i].innerHTML), 1)}
 
 		one.innerHTML = '<ul>' + patientsRoomOne.map(function (patient) {
 			return '<li>' + patient+ '</li>';
@@ -129,4 +141,276 @@ $('#lineRoomOne').click(function()
 		patientLines.innerHTML = '<ol>' + patientLine.map(function (patient) {
 			return '<li class= "line" id="line">' + patient+ '</li>';
 		}).join('') + '</ol>';
+
+		$('.line').click(function () {
+			$(this).toggleClass('lineClicked');
+			$(this).toggleClass('line');
+		});
+});
+
+//Check Walk-Ins into Room Two 
+
+$('#lineRoomTwo').click(function()
+{
+	let clickedTwo=$('.lineClicked').toArray();
+	for (i = 0; i< clickedTwo.length; i++) {
+		patientsRoomTwo.push(clickedTwo[i].innerHTML);
+		patientLine.splice(patientLine.indexOf(clickedTwo[i].innerHTML), 1)}
+
+		two.innerHTML = '<ul>' + patientsRoomTwo.map(function (patient) {
+			return '<li>' + patient+ '</li>';
+		}).join('') + '</ul>';
+
+		patientLines.innerHTML = '<ol>' + patientLine.map(function (patient) {
+			return '<li class= "line" id="line">' + patient+ '</li>';
+		}).join('') + '</ol>';
+
+		$('.line').click(function () {
+			$(this).toggleClass('lineClicked');
+			$(this).toggleClass('line');
+		});
+});
+
+//Check Walk-Ins into Room Three
+
+$('#lineRoomThree').click(function()
+{
+	let clickedThree=$('.lineClicked').toArray();
+	for (i = 0; i< clickedThree.length; i++) {
+		patientsRoomThree.push(clickedThree[i].innerHTML);
+		patientLine.splice(patientLine.indexOf(clickedThree[i].innerHTML), 1)}
+
+		three.innerHTML = '<ul>' + patientsRoomThree.map(function (patient) {
+			return '<li>' + patient+ '</li>';
+		}).join('') + '</ul>';
+
+		patientLines.innerHTML = '<ol>' + patientLine.map(function (patient) {
+			return '<li class= "line" id="line">' + patient+ '</li>';
+		}).join('') + '</ol>';
+
+		$('.line').click(function () {
+			$(this).toggleClass('lineClicked');
+			$(this).toggleClass('line');
+		});
+});
+
+//Check Walk-Ins into Room Four
+
+$('#lineRoomFour').click(function()
+{
+	let clickedFour=$('.lineClicked').toArray();
+	for (i = 0; i< clickedFour.length; i++) {
+		patientsRoomFour.push(clickedFour[i].innerHTML);
+		patientLine.splice(patientLine.indexOf(clickedFour[i].innerHTML), 1)}
+
+		four.innerHTML = '<ul>' + patientsRoomFour.map(function (patient) {
+			return '<li>' + patient+ '</li>';
+		}).join('') + '</ul>';
+
+		patientLines.innerHTML = '<ol>' + patientLine.map(function (patient) {
+			return '<li class= "line" id="line">' + patient+ '</li>';
+		}).join('') + '</ol>';
+
+		$('.line').click(function () {
+			$(this).toggleClass('lineClicked');
+			$(this).toggleClass('line');
+		});
+});
+
+//Check Walk-Ins into Room Five
+
+$('#lineRoomFive').click(function()
+{
+	let clickedFive=$('.lineClicked').toArray();
+	for (i = 0; i< clickedFive.length; i++) {
+		patientsRoomFive.push(clickedFive[i].innerHTML);
+		patientLine.splice(patientLine.indexOf(clickedFive[i].innerHTML), 1)}
+
+		five.innerHTML = '<ul>' + patientsRoomFive.map(function (patient) {
+			return '<li>' + patient+ '</li>';
+		}).join('') + '</ul>';
+
+		patientLines.innerHTML = '<ol>' + patientLine.map(function (patient) {
+			return '<li class= "line" id="line">' + patient+ '</li>';
+		}).join('') + '</ol>';
+
+		$('.line').click(function () {
+			$(this).toggleClass('lineClicked');
+			$(this).toggleClass('line');
+		});
+});
+
+//Check Walk-Ins into Room Six
+
+$('#lineRoomSix').click(function()
+{
+	let clickedSix=$('.lineClicked').toArray();
+	for (i = 0; i< clickedSix.length; i++) {
+		patientsRoomSix.push(clickedSix[i].innerHTML);
+		patientLine.splice(patientLine.indexOf(clickedSix[i].innerHTML), 1)}
+
+		six.innerHTML = '<ul>' + patientsRoomSix.map(function (patient) {
+			return '<li>' + patient+ '</li>';
+		}).join('') + '</ul>';
+
+		patientLines.innerHTML = '<ol>' + patientLine.map(function (patient) {
+			return '<li class= "line" id="line">' + patient+ '</li>';
+		}).join('') + '</ol>';
+
+		$('.line').click(function () {
+			$(this).toggleClass('lineClicked');
+			$(this).toggleClass('line');
+		});
+});
+
+
+//Appts
+
+//Toggle clicked vs unclicked Appts
+$('.appts').click(function () {
+    $(this).toggleClass('apptsClicked');
+    $(this).toggleClass('appts');
+});
+
+//Check Appts into Room One 
+
+$('#apptsRoomOne').click(function()
+{
+	let clickedOneAppts=$('.apptsClicked').toArray();
+	for (i = 0; i< clickedOneAppts.length; i++) {
+		patientsRoomOne.push(clickedOneAppts[i].innerHTML);
+		appts.splice(appts.indexOf(clickedOneAppts[i].innerHTML), 1)}
+
+		one.innerHTML = '<ul>' + patientsRoomOne.map(function (patient) {
+			return '<li>' + patient+ '</li>';
+		}).join('') + '</ul>';
+	
+
+		$('.appts').click(function () {
+			$(this).toggleClass('apptsClicked');
+			$(this).toggleClass('appts');
+});
+});
+
+//Check Appts into Room Two 
+
+$('#apptsRoomTwo').click(function()
+{
+	let clickedTwoAppts=$('.apptsClicked').toArray();
+	for (i = 0; i< clickedTwoAppts.length; i++) {
+		patientsRoomTwo.push(clickedTwoAppts[i].innerHTML);
+		appts.splice(appts.indexOf(clickedTwoAppts[i]), 1)};
+
+		two.innerHTML = '<ul>' + patientsRoomTwo.map(function (patient) {
+			return '<li>' + patient+ '</li>';
+		}).join('') + '</ul>';
+
+		$('.appts').click(function () {
+			$(this).toggleClass('apptsClicked');
+			$(this).toggleClass('appts');
+		
+});
+});
+
+//Check Appts into Room Three
+
+$('#apptsRoomThree').click(function()
+{
+	let clickedThreeAppts=$('.apptsClicked').toArray();
+	for (i = 0; i< clickedThreeAppts.length; i++) {
+		patientsRoomThree.push(clickedThreeAppts[i].innerHTML);
+		appts.splice(appts.indexOf(clickedThreeAppts[i].innerHTML), 1)}
+
+		three.innerHTML = '<ul>' + patientsRoomThree.map(function (patient) {
+			return '<li>' + patient+ '</li>';
+		}).join('') + '</ul>';
+
+		$('#appts').append('<tr class="appts" id="appts"><td>'+item["time"]+'</td>'+'<td>'+item.firstName+'</td></tr>');
+
+		$('.appts').click(function () {
+			$(this).toggleClass('apptsClicked');
+			$(this).toggleClass('appts');
+	
+});
+});
+
+//Check Appts into Room Four
+
+$('#apptsRoomFour').click(function()
+{
+	let clickedFourAppts=$('.apptsClicked').toArray();
+	for (i = 0; i< clickedFourAppts.length; i++) {
+		patientsRoomFour.push(clickedFourAppts[i].innerHTML);
+		appts.splice(appts.indexOf(clickedFourAppts[i].innerHTML), 1)}
+
+		four.innerHTML = '<ul>' + patientsRoomFour.map(function (patient) {
+			return '<li>' + patient+ '</li>';
+		}).join('') + '</ul>';
+
+		$('.appts').click(function () {
+			$(this).toggleClass('apptsClicked');
+			$(this).toggleClass('appts');
+});
+});
+
+//Check Appts into Room Five
+
+$('#apptsRoomFive').click(function()
+{
+	let clickedFiveAppts=$('.apptsClicked').toArray();
+	for (i = 0; i< clickedFiveAppts.length; i++) {
+		patientsRoomFive.push(clickedFiveAppts[i].innerHTML);
+		appts.splice(appts.indexOf(clickedFiveAppts[i].innerHTML), 1)}
+
+		five.innerHTML = '<ul>' + patientsRoomFive.map(function (patient) {
+			return '<li>' + patient+ '</li>';
+		}).join('') + '</ul>';
+
+		$('.appts').click(function () {
+			$(this).toggleClass('apptsClicked');
+			$(this).toggleClass('appts');
+		
+});
+});
+
+//Check Appts into Room Six
+
+$('#apptsRoomSix').click(function()
+{
+	let clickedSixAppts=$('.apptsClicked').toArray();
+	for (i = 0; i< clickedSixAppts.length; i++) {
+		patientsRoomSix.push(clickedSixAppts[i]);
+		appts.splice(appts.indexOf(clickedSixAppts[i].innerHTML), 1)}
+
+		six.innerHTML = '<ul>' + patientsRoomSix.map(function (patient) {
+			return '<li>' + patient+ '</li>';
+		}).join('') + '</ul>';
+
+		appts.forEach(function(item){
+			$('#appts').remove('<tr class="appts" id="appts"><td>'+item["time"]+'</td>'+'<td>'+item.firstName+'</td></tr>')
+		  });
+
+		$('.appts').click(function () {
+			$(this).toggleClass('apptsClicked');
+			$(this).toggleClass('appts');
+		});
+});
+
+
+
+
+
+//Add Patient Modal
+
+$('#addPatient').click(function() {
+let patientName=document.getElementById("fullName").value;
+patientLine.push(patientName);
+patientLines.innerHTML = '<ol>' + patientLine.map(function (patient) {
+	return '<li class= "line" id="line">' + patient+ '</li>';
+}).join('') + '</ol>';
+document.getElementById("fullName").value="";
+$('.line').click(function () {
+	$(this).toggleClass('lineClicked');
+	$(this).toggleClass('line');
+});
 });
