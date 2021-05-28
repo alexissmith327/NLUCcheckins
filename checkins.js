@@ -7,8 +7,7 @@ let patientsRoomFive=[];
 let patientsRoomSix=[];
 let patientLine=["Juliet Breeze","Cheryl Bertrand","Hunter Breeze","Ava Breeze","Chelsea Gomez","Alexis Smith","Taylor Terrell","Mark Gryder", "Bill McGrath", "Jeremy Behling"];
 
-let appts=[{"firstName":"Scott Breeze", "time":"4:30pm"},
- {"firstName":"Allyson Cooper", "time":"5:30pm"},{"firstName":"Taylor Smith", "time":"7:30pm"}, {"firstName":"Rafik Sandford", "time":"8:30pm"},{"firstName":"Pat Ronaghan", "time":"8:55pm"}]
+let appts=["Bob Smith", "Haley Foster","Rafik Sandford","Alexis Smith"]
 
 var checkedOut=[];
 
@@ -61,9 +60,11 @@ patientLines.innerHTML = '<ol>' + patientLine.map(function (patient) {
 }).join('') + '</ol>';
 
 //Appointments
-appts.forEach(function(item){
-	$('#appts').append('<tr class="appts" id="appts"><td>'+item["time"]+'</td>'+'<td>'+item.firstName+'</td></tr>')
-  });
+var apptLine=document.querySelector('#appts');
+apptLine.innerHTML='<ol>' + appts.map(function (patient) {
+		return '<li class= "appts" id="appts">' + patient+ '</li>';
+	}).join('') + '</ol>';
+
 
 $('#checkoutRoomOne').click(function()
 {
@@ -142,6 +143,8 @@ $('#lineRoomOne').click(function()
 			return '<li class= "line" id="line">' + patient+ '</li>';
 		}).join('') + '</ol>';
 
+		$("#checkoutRoomOne").show(); 
+
 		$('.line').click(function () {
 			$(this).toggleClass('lineClicked');
 			$(this).toggleClass('line');
@@ -164,6 +167,8 @@ $('#lineRoomTwo').click(function()
 		patientLines.innerHTML = '<ol>' + patientLine.map(function (patient) {
 			return '<li class= "line" id="line">' + patient+ '</li>';
 		}).join('') + '</ol>';
+
+		$("#checkoutRoomTwo").show(); 
 
 		$('.line').click(function () {
 			$(this).toggleClass('lineClicked');
@@ -188,6 +193,8 @@ $('#lineRoomThree').click(function()
 			return '<li class= "line" id="line">' + patient+ '</li>';
 		}).join('') + '</ol>';
 
+		$("#checkoutRoomThree").show(); 
+
 		$('.line').click(function () {
 			$(this).toggleClass('lineClicked');
 			$(this).toggleClass('line');
@@ -210,6 +217,8 @@ $('#lineRoomFour').click(function()
 		patientLines.innerHTML = '<ol>' + patientLine.map(function (patient) {
 			return '<li class= "line" id="line">' + patient+ '</li>';
 		}).join('') + '</ol>';
+
+		$("#checkoutRoomFour").show(); 
 
 		$('.line').click(function () {
 			$(this).toggleClass('lineClicked');
@@ -234,6 +243,8 @@ $('#lineRoomFive').click(function()
 			return '<li class= "line" id="line">' + patient+ '</li>';
 		}).join('') + '</ol>';
 
+		$("#checkoutRoomFive").show(); 
+
 		$('.line').click(function () {
 			$(this).toggleClass('lineClicked');
 			$(this).toggleClass('line');
@@ -245,9 +256,11 @@ $('#lineRoomFive').click(function()
 $('#lineRoomSix').click(function()
 {
 	let clickedSix=$('.lineClicked').toArray();
-	for (i = 0; i< clickedSix.length; i++) {
+	for (i = 0; i< clickedSix.length; i++) 
+	{
 		patientsRoomSix.push(clickedSix[i].innerHTML);
-		patientLine.splice(patientLine.indexOf(clickedSix[i].innerHTML), 1)}
+		patientLine.splice(patientLine.indexOf(clickedSix[i].innerHTML), 1)
+	}
 
 		six.innerHTML = '<ul>' + patientsRoomSix.map(function (patient) {
 			return '<li>' + patient+ '</li>';
@@ -256,6 +269,8 @@ $('#lineRoomSix').click(function()
 		patientLines.innerHTML = '<ol>' + patientLine.map(function (patient) {
 			return '<li class= "line" id="line">' + patient+ '</li>';
 		}).join('') + '</ol>';
+
+		$("#checkoutRoomSix").show(); 
 
 		$('.line').click(function () {
 			$(this).toggleClass('lineClicked');
@@ -278,13 +293,18 @@ $('#apptsRoomOne').click(function()
 {
 	let clickedOneAppts=$('.apptsClicked').toArray();
 	for (i = 0; i< clickedOneAppts.length; i++) {
-		patientsRoomOne.push(clickedOneAppts[i].innerHTML);
-		appts.splice(appts.indexOf(clickedOneAppts[i].innerHTML), 1)}
-
+			patientsRoomOne.push(clickedOneAppts[i].innerHTML);
+			appts.splice(appts.indexOf(clickedOneAppts[i].innerHTML), 1)}
+	
 		one.innerHTML = '<ul>' + patientsRoomOne.map(function (patient) {
 			return '<li>' + patient+ '</li>';
 		}).join('') + '</ul>';
+
+		apptLine.innerHTML='<ol>' + appts.map(function (patient) {
+			return '<li class= "appts" id="appts">' + patient+ '</li>';
+		}).join('') + '</ol>';
 	
+		$("#checkoutRoomOne").show(); 
 
 		$('.appts').click(function () {
 			$(this).toggleClass('apptsClicked');
@@ -299,11 +319,17 @@ $('#apptsRoomTwo').click(function()
 	let clickedTwoAppts=$('.apptsClicked').toArray();
 	for (i = 0; i< clickedTwoAppts.length; i++) {
 		patientsRoomTwo.push(clickedTwoAppts[i].innerHTML);
-		appts.splice(appts.indexOf(clickedTwoAppts[i]), 1)};
+		appts.splice(appts.indexOf(clickedTwoAppts[i].innerHTML), 1)}
 
 		two.innerHTML = '<ul>' + patientsRoomTwo.map(function (patient) {
 			return '<li>' + patient+ '</li>';
 		}).join('') + '</ul>';
+
+		apptLine.innerHTML='<ol>' + appts.map(function (patient) {
+			return '<li class= "appts" id="appts">' + patient+ '</li>';
+		}).join('') + '</ol>';
+
+		$("#checkoutRoomTwo").show(); 
 
 		$('.appts').click(function () {
 			$(this).toggleClass('apptsClicked');
@@ -321,11 +347,16 @@ $('#apptsRoomThree').click(function()
 		patientsRoomThree.push(clickedThreeAppts[i].innerHTML);
 		appts.splice(appts.indexOf(clickedThreeAppts[i].innerHTML), 1)}
 
+
 		three.innerHTML = '<ul>' + patientsRoomThree.map(function (patient) {
 			return '<li>' + patient+ '</li>';
 		}).join('') + '</ul>';
 
-		$('#appts').append('<tr class="appts" id="appts"><td>'+item["time"]+'</td>'+'<td>'+item.firstName+'</td></tr>');
+		apptLine.innerHTML='<ol>' + appts.map(function (patient) {
+			return '<li class= "appts" id="appts">' + patient+ '</li>';
+		}).join('') + '</ol>';
+
+		$("#checkoutRoomThree").show(); 
 
 		$('.appts').click(function () {
 			$(this).toggleClass('apptsClicked');
@@ -347,6 +378,12 @@ $('#apptsRoomFour').click(function()
 			return '<li>' + patient+ '</li>';
 		}).join('') + '</ul>';
 
+		apptLine.innerHTML='<ol>' + appts.map(function (patient) {
+			return '<li class= "appts" id="appts">' + patient+ '</li>';
+		}).join('') + '</ol>';
+
+		$("#checkoutRoomFour").show(); 
+
 		$('.appts').click(function () {
 			$(this).toggleClass('apptsClicked');
 			$(this).toggleClass('appts');
@@ -366,6 +403,12 @@ $('#apptsRoomFive').click(function()
 			return '<li>' + patient+ '</li>';
 		}).join('') + '</ul>';
 
+		apptLine.innerHTML='<ol>' + appts.map(function (patient) {
+			return '<li class= "appts" id="appts">' + patient+ '</li>';
+		}).join('') + '</ol>';
+
+		$("#checkoutRoomFive").show(); 
+
 		$('.appts').click(function () {
 			$(this).toggleClass('apptsClicked');
 			$(this).toggleClass('appts');
@@ -379,21 +422,24 @@ $('#apptsRoomSix').click(function()
 {
 	let clickedSixAppts=$('.apptsClicked').toArray();
 	for (i = 0; i< clickedSixAppts.length; i++) {
-		patientsRoomSix.push(clickedSixAppts[i]);
+		patientsRoomSix.push(clickedSixAppts[i].innerHTML);
 		appts.splice(appts.indexOf(clickedSixAppts[i].innerHTML), 1)}
 
 		six.innerHTML = '<ul>' + patientsRoomSix.map(function (patient) {
 			return '<li>' + patient+ '</li>';
 		}).join('') + '</ul>';
 
-		appts.forEach(function(item){
-			$('#appts').remove('<tr class="appts" id="appts"><td>'+item["time"]+'</td>'+'<td>'+item.firstName+'</td></tr>')
-		  });
+		apptLine.innerHTML='<ol>' + appts.map(function (patient) {
+			return '<li class= "appts" id="appts">' + patient+ '</li>';
+		}).join('') + '</ol>';
+
+		$("#checkoutRoomSix").show(); 
 
 		$('.appts').click(function () {
 			$(this).toggleClass('apptsClicked');
 			$(this).toggleClass('appts');
-		});
+
+});
 });
 
 
